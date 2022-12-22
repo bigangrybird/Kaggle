@@ -1,0 +1,24 @@
+clean data部分不清楚为什么要填那些数字
+
+
+处理步骤：
+1、加载数据
+
+2、数据探索
+    2.1 检查数据，具体包括查看数据维度，各个特征的数据类型与具体意义，各个特征的缺失值情况，做到对数据有一个总体认识；
+    2.2 clean data，给一些revenue不合理的数据修改budget（不清楚）
+
+3、添加外部数据
+    添加了release_dates_per_country.csv、votes.csv、AdditionalFeature
+
+4、EDA（exploratory data analysis）
+    画了一下几个比较重要的特征与revenue的关系
+    画增强箱型图寻找异常值
+    画分布图看看目标是否需要进行log1p操作
+    画heatmap，关注影响较大的feature
+
+5、特征工程
+    5.1 将一些应该是json格式的特征从字符串转换成json（其实是list内部包含dictionary）
+    5.2 收集json_cols里面这些feature包含的所有name，并计数
+    5.3 删除上一步收集到的name中没有同时出现在train和test中的值，以及计数小于10的值
+    5.4 增加一些特征
